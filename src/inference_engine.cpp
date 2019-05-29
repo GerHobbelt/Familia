@@ -17,8 +17,9 @@ InferenceEngine::InferenceEngine(const std::string& model_dir,
     LOG(INFO) << "Inference Engine initializing...";
     // 读取模型配置和模型
     ModelConfig config;
+    // 在util.h文件
     load_prototxt(model_dir + "/" + conf_file, config);
-    //_model就是TopicModel的一个对象
+    // _model就是TopicModel的一个对象
     _model = std::make_shared<TopicModel>(model_dir, config);
 
     // 根据配置初始化采样器
