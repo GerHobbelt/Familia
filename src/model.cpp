@@ -74,6 +74,7 @@ void TopicModel::load_word_topic(const std::string& word_topic_path) {
             _topic_sum[topic_id] += count;
         }
         // 按照主题下标进行排序
+        // 按照topicID进行排序
         std::sort(_word_topic[term_id].begin(), _word_topic[term_id].end());
     }
 
