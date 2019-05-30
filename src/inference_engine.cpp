@@ -40,7 +40,7 @@ int InferenceEngine::infer(const std::vector<std::string>& input, LDADoc& doc) {
     doc.set_alpha(_model->alpha());
     for (const auto& token : input) {
         int id = _model->term_id(token);
-        # OOV: out of vocabulary, 表示单词不在词表中，在vocab.h里面，等于-1
+        // OOV: out of vocabulary, 表示单词不在词表中，在vocab.h里面，等于-1
         if (id != OOV) {
             int init_topic = rand_k(_model->num_topics());
             doc.add_token({init_topic, id});
