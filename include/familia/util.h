@@ -17,7 +17,7 @@
 namespace familia {
 
 // 返回一个可在多线程下工作的随机数引擎
-// 起作用的是--mt19937是c++的一个随机数生成工具，范围是（0,4...）
+// 起作用的是--mt19937是c++的一个随机数生成工具
 inline std::mt19937& local_random_engine() {
     struct engine_wrapper_t {
         std::mt19937 engine;
