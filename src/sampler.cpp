@@ -197,6 +197,7 @@ float MHSampler::word_proposal_distribution(int word_id, int topic) {
 
 int MHSampler::construct_alias_table() {
     size_t vocab_size = _model->vocab_size();
+    // TopicIndex本身就是数组 :vector<int32_t>
     _topic_indexes = std::vector<TopicIndex>(vocab_size);
     _alias_tables = std::vector<VoseAlias>(vocab_size);
     _prob_sum = std::vector<double>(vocab_size);

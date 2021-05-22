@@ -17,7 +17,9 @@ InferenceEngine::InferenceEngine(const std::string& model_dir,
     LOG(INFO) << "Inference Engine initializing...";
     // 读取模型配置和模型
     ModelConfig config;
+    // 在util.h文件
     load_prototxt(model_dir + "/" + conf_file, config);
+    // _model就是TopicModel的一个对象
     _model = std::make_shared<TopicModel>(model_dir, config);
 
     // 根据配置初始化采样器
@@ -38,6 +40,7 @@ int InferenceEngine::infer(const std::vector<std::string>& input, LDADoc& doc) {
     doc.set_alpha(_model->alpha());
     for (const auto& token : input) {
         int id = _model->term_id(token);
+        // OOV: out of vocabulary, 表示单词不在词表中，在vocab.h里面，等于-1
         if (id != OOV) {
             int init_topic = rand_k(_model->num_topics());
             doc.add_token({init_topic, id});
