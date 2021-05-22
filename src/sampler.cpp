@@ -246,6 +246,7 @@ void GibbsSampler::sample_doc(SLDADoc& doc) {
     int new_topic = -1;
     for (size_t i = 0; i < doc.size(); ++i) {
         new_topic = sample_sentence(doc, doc.sent(i));
+        // 修改第i个单词的主题
         doc.set_topic(i, new_topic);
     }
 }
@@ -260,8 +261,11 @@ int GibbsSampler::sample_token(LDADoc& doc, Token& token) {
     float wt_beta = 0.0;
     float t_sum_beta_sum = 0.0;
     for (int t = 0; t < num_topics; ++t) {
+        // 返回topicID是t的数量
         dt_alpha = doc.topic_sum(t) + _model->alpha();
+        // 返回模型中某个词在某个主题下的数量，由于模型采用稀疏存储，若找不到则返回0
         wt_beta = _model->word_topic(token.id, t) + _model->beta();
+        // topic_sum(t)： 返回指定topic id的topic sum参数
         t_sum_beta_sum = _model->topic_sum(t) + _model->beta_sum();
         if (t == old_topic && wt_beta > 1) {
             if (dt_alpha > 1) {
