@@ -64,7 +64,7 @@ int main(int argc, char* argv[]) {
                    string("--emb_file=\"webpage_twe_lda.model\" ") +
                    string("--top_k=\"20\" ");
     google::SetUsageMessage(usage);
-    google::ParseCommandLineFlags(&argc, &argv, true);
+	gflags::ParseCommandLineFlags(&argc, &argv, true);
 
     familia::WordDistanceDemo wd_demo;
 

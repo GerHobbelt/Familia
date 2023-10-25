@@ -124,7 +124,7 @@ int main(int argc, char* argv[]) {
                    string("--model_type=\"LDA\" ") +
                    string("--top_k=\"20\" ");
     google::SetUsageMessage(usage);
-    google::ParseCommandLineFlags(&argc, &argv, true);
+    gflags::ParseCommandLineFlags(&argc, &argv, true);
 
     familia::DocKeywordsDemo doc_keywords_demo;
     // 计算短文本与长文本的相似度

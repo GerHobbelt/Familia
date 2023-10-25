@@ -82,7 +82,7 @@ int main(int argc, char* argv[]) {
     string usage = string("Usage: ./doc_distance_demo --model_dir=\"PATH/TO/MODEL\" ") + 
                    string("--conf_file=\"lda.conf\" ");
     google::SetUsageMessage(usage);
-    google::ParseCommandLineFlags(&argc, &argv, true);
+	gflags::ParseCommandLineFlags(&argc, &argv, true);
 
     familia::DocDistanceDemo doc_dis_demo;
     string doc1;

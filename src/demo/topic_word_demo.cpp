@@ -99,7 +99,7 @@ int main(int argc, char* argv[]) {
                    string("--emb_file=\"webpage_twe_lda.model\" ") +
                    string("--topic_words_file=\"topic_words.txt\" ");
     google::SetUsageMessage(usage);
-    google::ParseCommandLineFlags(&argc, &argv, true);
+	gflags::ParseCommandLineFlags(&argc, &argv, true);
 
     familia::TopicWordDemo tw_demo;
     

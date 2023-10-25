@@ -84,7 +84,7 @@ int main(int argc, char* argv[]) {
     string usage = string("Usage: ./query_doc_sim_demo --model_dir=\"PATH/TO/MODEL\" ") + 
                    string("--emb_file=\"webpage_twe_lda.model\" ");
     google::SetUsageMessage(usage);
-    google::ParseCommandLineFlags(&argc, &argv, true);
+	gflags::ParseCommandLineFlags(&argc, &argv, true);
 
     familia::QueryDocSimDemo qd_sim_demo;
     // 计算短文本与长文本的相似度

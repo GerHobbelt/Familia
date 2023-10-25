@@ -137,7 +137,7 @@ int main(int argc, char* argv[]) {
                    string("--conf_file=\"lda.conf\"") +
                    string("--top_k=\"20\" ");
     google::SetUsageMessage(usage);
-    google::ParseCommandLineFlags(&argc, &argv, true);
+	gflags::ParseCommandLineFlags(&argc, &argv, true);
 
     // 读取模型配置和模型
     familia::ModelConfig config;

@@ -34,7 +34,7 @@ int main(int argc, char* argv[]) {
     string usage = string("Usage: ./semantic_matching_demo --model_dir=\"PATH/TO/MODEL\" ") + 
                    string("--conf_file=\"lda.conf\" ");
     google::SetUsageMessage(usage);
-    google::ParseCommandLineFlags(&argc, &argv, true);
+	gflags::ParseCommandLineFlags(&argc, &argv, true);
 
     InferenceEngine engine(FLAGS_model_dir, FLAGS_conf_file, SamplerType::MetropolisHastings);
    
